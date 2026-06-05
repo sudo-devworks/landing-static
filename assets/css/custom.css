@@ -1,0 +1,42 @@
+[x-cloak] { display: none !important; }
+
+body {
+    font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+section[id] {
+    scroll-margin-top: 88px;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* SDW color fallback for static version.
+   This makes the page independent from Tailwind custom config when using CDN. */
+.bg-sdw-navy { background-color: #0F172A !important; }
+.bg-sdw-blue { background-color: #2563EB !important; }
+.bg-sdw-cyan { background-color: #38BDF8 !important; }
+.bg-sdw-slate { background-color: #334155 !important; }
+.bg-sdw-light { background-color: #F8FAFC !important; }
+.bg-sdw-emerald { background-color: #10B981 !important; }
+
+.text-sdw-navy { color: #0F172A !important; }
+.text-sdw-blue { color: #2563EB !important; }
+.text-sdw-cyan { color: #38BDF8 !important; }
+.text-sdw-slate { color: #334155 !important; }
+.text-sdw-light { color: #F8FAFC !important; }
+.text-sdw-emerald { color: #10B981 !important; }
+
+.border-sdw-navy { border-color: #0F172A !important; }
+.border-sdw-blue { border-color: #2563EB !important; }
+.border-sdw-cyan { border-color: #38BDF8 !important; }
+.border-sdw-slate { border-color: #334155 !important; }
+.border-sdw-light { border-color: #F8FAFC !important; }
+.border-sdw-emerald { border-color: #10B981 !important; }
+
+.shadow-soft { box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08) !important; }
+
+.hover\:text-sdw-blue:hover { color: #2563EB !important; }
+.hover\:border-sdw-blue:hover { border-color: #2563EB !important; }

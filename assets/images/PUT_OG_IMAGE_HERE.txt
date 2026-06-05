@@ -1,0 +1,2 @@
+Opsional: taruh Open Graph image di sini dengan nama og-image.png.
+Ukuran rekomendasi: 1200x630 px.

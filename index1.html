@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudo DevWorks — Custom Web Application & Digital Solutions</title>
+
+    <meta name="description" content="Sudo DevWorks membantu kantor, sekolah, yayasan, dan UMKM membangun aplikasi web sederhana, cepat, dan sesuai kebutuhan untuk digitalisasi operasional.">
+    <meta name="keywords" content="Sudo DevWorks, aplikasi web kustom, digitalisasi operasional, website company profile, sistem laporan, dashboard monitoring, aplikasi UMKM">
+    <meta name="author" content="Sudo DevWorks">
+
+    <meta property="og:title" content="Sudo DevWorks — Custom Web Application & Digital Solutions">
+    <meta property="og:description" content="Digitalisasi operasional tanpa ribet untuk kantor, sekolah, yayasan, dan UMKM.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:url" content="https://sudodevworks.com">
+    <meta property="og:image" content="https://sudodevworks.com/assets/images/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'sdw-navy': '#0F172A',
+                        'sdw-blue': '#2563EB',
+                        'sdw-cyan': '#38BDF8',
+                        'sdw-slate': '#334155',
+                        'sdw-light': '#F8FAFC',
+                        'sdw-emerald': '#10B981',
+                    },
+                    boxShadow: {
+                        soft: '0 20px 50px rgba(15, 23, 42, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-sdw-light text-sdw-slate antialiased">
+    <div class="min-h-screen overflow-x-hidden">
+<header
+        x-data="{ mobileMenuOpen: false }"
+        class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl"
+    >
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+            <a href="#beranda" class="flex items-center gap-3">
+                <div class="grid size-10 place-items-center">
+                    <img
+                        src="assets/logo/sudo-devworks-logo-icon-transparent.png"
+                        alt="Sudo DevWorks"
+                        class="size-10 object-contain"
+                    />
+                </div>
+
+                <div class="leading-tight">
+                    <p class="text-base font-extrabold tracking-tight text-sdw-navy">
+                        Sudo DevWorks
+                    </p>
+                    <p class="text-xs font-medium text-slate-500">
+                        Digital Solutions
+                    </p>
+                </div>
+            </a>
+
+            <div class="hidden items-center gap-8 lg:flex">
+                <a href="#beranda" class="text-sm font-semibold text-slate-600 transition hover:text-sdw-blue">Beranda</a>
+                <a href="#layanan" class="text-sm font-semibold text-slate-600 transition hover:text-sdw-blue">Layanan</a>
+                <a href="#solusi" class="text-sm font-semibold text-slate-600 transition hover:text-sdw-blue">Solusi</a>
+                <a href="#cara-kerja" class="text-sm font-semibold text-slate-600 transition hover:text-sdw-blue">Cara Kerja</a>
+                <a href="#tentang-kami" class="text-sm font-semibold text-slate-600 transition hover:text-sdw-blue">Tentang Kami</a>
+                <a href="#kontak" class="text-sm font-semibold text-slate-600 transition hover:text-sdw-blue">Kontak</a>
+            </div>
+
+            <div class="hidden lg:block">
+                <a
+                    href="https://wa.me/628138280778?text=Halo%20Sudo%20DevWorks%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20aplikasi%20web%20dan%20digitalisasi%20operasional%20untuk%20instansi%2Fbisnis%20saya."
+                    target="_blank"
+                    class="inline-flex items-center justify-center rounded-full bg-sdw-blue px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700"
+                >
+                    Konsultasi Gratis
+                </a>
+            </div>
+
+            <button
+                type="button"
+                class="inline-flex size-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-sdw-navy lg:hidden"
+                @click="mobileMenuOpen = !mobileMenuOpen"
+                aria-label="Toggle navigation"
+            >
+                <svg x-show="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+
+                <svg x-show="mobileMenuOpen" x-cloak xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </nav>
+
+        <div
+            x-show="mobileMenuOpen"
+            x-transition
+            x-cloak
+            class="border-t border-slate-200 bg-white px-6 py-5 shadow-soft lg:hidden"
+        >
+            <div class="flex flex-col gap-4">
+                <a href="#beranda" @click="mobileMenuOpen = false" class="text-sm font-semibold text-slate-700">Beranda</a>
+                <a href="#layanan" @click="mobileMenuOpen = false" class="text-sm font-semibold text-slate-700">Layanan</a>
+                <a href="#solusi" @click="mobileMenuOpen = false" class="text-sm font-semibold text-slate-700">Solusi</a>
+                <a href="#cara-kerja" @click="mobileMenuOpen = false" class="text-sm font-semibold text-slate-700">Cara Kerja</a>
+                <a href="#tentang-kami" @click="mobileMenuOpen = false" class="text-sm font-semibold text-slate-700">Tentang Kami</a>
+                <a href="#kontak" @click="mobileMenuOpen = false" class="text-sm font-semibold text-slate-700">Kontak</a>
+
+                <a
+                    href="https://wa.me/628138280778?text=Halo%20Sudo%20DevWorks%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20aplikasi%20web%20dan%20digitalisasi%20operasional%20untuk%20instansi%2Fbisnis%20saya."
+                    target="_blank"
+                    class="mt-2 inline-flex items-center justify-center rounded-full bg-sdw-blue px-5 py-3 text-sm font-bold text-white"
+                >
+                    Konsultasi Gratis
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="beranda" class="relative overflow-hidden pt-32 lg:pt-40">
+            <div class="absolute inset-0 -z-10">
+                <div class="absolute left-1/2 top-0 size-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl"></div>
+                <div class="absolute right-0 top-40 size-[360px] rounded-full bg-cyan-400/10 blur-3xl"></div>
+            </div>
+
+            <div class="mx-auto grid max-w-7xl items-center gap-14 px-6 pb-24 lg:grid-cols-2 lg:px-8 lg:pb-32">
+                <div>
+                    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-sdw-blue shadow-sm">
+                        <span class="size-2 rounded-full bg-sdw-emerald"></span>
+                        Custom Web Application & Digital Solutions
+                    </div>
+
+                    <h1 class="max-w-3xl text-4xl font-black tracking-tight text-sdw-navy sm:text-5xl lg:text-6xl">
+                        Digitalisasi operasional tanpa ribet.
+                    </h1>
+
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                        Sudo DevWorks merancang aplikasi web kustom untuk UMKM, sekolah, yayasan, dan kantor kecil—menghadirkan sistem yang rapi, mudah digunakan, dan pas dengan kebutuhan harian Anda.
+                    </p>
+
+                    <p class="mt-5 max-w-2xl text-base leading-7 text-slate-500">
+                        Saatnya tinggalkan cara manual. Kami siap membantu Anda memigrasi proses kerja dari Excel, WhatsApp, dan buku catatan ke dalam satu sistem yang terintegrasi.
+                    </p>
+
+                    <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+                        <a
+                            href="https://wa.me/628138280778?text=Halo%20Sudo%20DevWorks%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20aplikasi%20web%20dan%20digitalisasi%20operasional%20untuk%20instansi%2Fbisnis%20saya."
+                            target="_blank"
+                            class="inline-flex items-center justify-center rounded-full bg-sdw-blue px-7 py-4 text-sm font-bold text-white shadow-xl shadow-blue-600/20 transition hover:bg-blue-700"
+                        >
+                            Konsultasi via WhatsApp
+                        </a>
+
+                        <a
+                            href="#solusi"
+                            class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-bold text-sdw-navy transition hover:border-sdw-blue hover:text-sdw-blue"
+                        >
+                            Lihat Contoh Solusi
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="rounded-[2rem] border border-slate-200 bg-white p-4 shadow-soft">
+                        <div class="rounded-[1.5rem] bg-sdw-navy p-5 text-white">
+                            <div class="mb-5 flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-300">Dashboard Operasional</p>
+                                    <h2 class="mt-1 text-xl font-black">Sudo WorkFlow</h2>
+                                </div>
+
+                                <div class="rounded-full bg-emerald-400/20 px-3 py-1 text-xs font-bold text-emerald-300">
+                                    Live
+                                </div>
+                            </div>
+
+                            <div class="grid gap-4 sm:grid-cols-2">
+                                <div class="rounded-2xl bg-white/10 p-4">
+                                    <p class="text-sm text-slate-300">Laporan Hari Ini</p>
+                                    <p class="mt-3 text-3xl font-black">48</p>
+                                    <p class="mt-2 text-xs text-emerald-300">+12% lebih cepat</p>
+                                </div>
+
+                                <div class="rounded-2xl bg-white/10 p-4">
+                                    <p class="text-sm text-slate-300">Tugas Selesai</p>
+                                    <p class="mt-3 text-3xl font-black">86%</p>
+                                    <p class="mt-2 text-xs text-cyan-300">Terpantau real-time</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 rounded-2xl bg-white p-4 text-sdw-navy">
+                                <div class="mb-4 flex items-center justify-between">
+                                    <p class="text-sm font-bold">Aktivitas Terbaru</p>
+                                    <p class="text-xs font-semibold text-sdw-blue">Rapi & terstruktur</p>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3 rounded-xl bg-slate-50 p-3">
+                                        <div class="size-9 rounded-xl bg-blue-100"></div>
+                                        <div>
+                                            <p class="text-sm font-bold">Rekap laporan bulanan</p>
+                                            <p class="text-xs text-slate-500">Otomatis tersusun</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-3 rounded-xl bg-slate-50 p-3">
+                                        <div class="size-9 rounded-xl bg-cyan-100"></div>
+                                        <div>
+                                            <p class="text-sm font-bold">Data mudah dicari</p>
+                                            <p class="text-xs text-slate-500">Dalam hitungan detik</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-3 rounded-xl bg-slate-50 p-3">
+                                        <div class="size-9 rounded-xl bg-emerald-100"></div>
+                                        <div>
+                                            <p class="text-sm font-bold">Progress tim transparan</p>
+                                            <p class="text-xs text-slate-500">Terpantau dari dashboard</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute -bottom-6 -left-6 hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-soft sm:block">
+                        <p class="text-sm font-bold text-sdw-navy">Cocok untuk</p>
+                        <p class="mt-1 text-sm text-slate-500">UMKM • Sekolah • Yayasan • Kantor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem" class="bg-white py-24">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-blue">
+                        Tantangan Operasional
+                    </p>
+
+                    <h2 class="mt-4 text-3xl font-black tracking-tight text-sdw-navy sm:text-4xl lg:text-5xl">
+                        Masih mengelola operasional dengan cara lama?
+                    </h2>
+
+                    <p class="mt-6 text-base leading-8 text-slate-600">
+                        Banyak bisnis, sekolah, dan yayasan terjebak dalam rutinitas manual yang melelahkan.
+                        Saat data tercecer di puluhan file Excel, koordinasi tersendat di grup WhatsApp,
+                        dan pencarian dokumen memakan waktu berjam-jam, pimpinan pun kehilangan kendali
+                        untuk memantau perkembangan kerja secara cepat dan akurat.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="mb-5 grid size-16 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-cyan-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="files" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-lg font-black text-sdw-navy">
+                            Data Tercecer & Sulit Sinkron
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Informasi penting tersebar di berbagai file Excel dan obrolan WhatsApp yang menumpuk.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="mb-5 grid size-16 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-blue-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="clock" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-lg font-black text-sdw-navy">
+                            Rekap Laporan Menyita Waktu
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Butuh waktu berhari-hari hanya untuk mengumpulkan dan menyatukan laporan dari berbagai divisi.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="mb-5 grid size-16 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 text-sdw-emerald shadow-sm">
+                            <i data-lucide="user-round" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-lg font-black text-sdw-navy">
+                            Ketergantungan pada Individu
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Operasional langsung mandek atau bingung saat ada staf kunci yang sedang berhalangan hadir.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="mb-5 grid size-16 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-slate-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="eye-off" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-lg font-black text-sdw-navy">
+                            Buta Terhadap Progres Kerja
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Pimpinan kesulitan memantau status pekerjaan yang sedang berjalan secara langsung atau real-time.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="mb-5 grid size-16 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-blue-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="folder-open" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-lg font-black text-sdw-navy">
+                            Arsip Dokumen Berantakan
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Menghabiskan waktu berharga hanya untuk mencari riwayat data atau dokumen fisik lama.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="mb-5 grid size-16 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-blue-50 text-sdw-emerald shadow-sm">
+                            <i data-lucide="repeat" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-lg font-black text-sdw-navy">
+                            Rutinitas Manual yang Melelahkan
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Tugas-tugas administratif yang sama terus diinput berulang kali setiap harinya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="relative overflow-hidden bg-sdw-navy py-24">
+            <div class="absolute inset-0">
+                <div class="absolute -left-20 top-20 size-72 rounded-full bg-blue-500/20 blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 size-96 rounded-full bg-cyan-400/10 blur-3xl"></div>
+            </div>
+
+            <div class="relative mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+                <div>
+                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-cyan">
+                        Solusi Digital Praktis
+                    </p>
+
+                    <h2 class="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+                        Transformasikan cara kerja manual menjadi sistem digital yang rapi.
+                    </h2>
+
+                    <p class="mt-6 text-base leading-8 text-slate-300">
+                        Sudo DevWorks merancang aplikasi web kustom yang sepenuhnya mengikuti alur kerja unik instansi Anda.
+                        Kami fokus pada penyediaan fitur yang benar-benar esensial dan berdampak langsung pada operasional harian—memastikan
+                        sistem tetap sederhana, mudah dipahami seluruh tim, dan bebas dari kerumitan yang tidak perlu.
+                    </p>
+
+                    <div class="mt-10 rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+                        <p class="text-sm font-bold text-white">
+                            Prinsip kami sederhana:
+                        </p>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-300">
+                            Sistem yang baik bukan yang paling rumit, tapi yang paling mudah dipakai,
+                            paling cepat membantu pekerjaan, dan paling relevan dengan kebutuhan harian pengguna.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid gap-5 sm:grid-cols-2">
+                    <div class="rounded-3xl border border-white/10 bg-white p-6 shadow-soft">
+                        <div class="mb-4 grid size-16 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-cyan-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="list-checks" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="font-black text-sdw-navy">
+                            Input Data Lebih Terstruktur
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Semua informasi kini masuk ke satu sistem yang rapi, tervalidasi, dan bebas dari risiko data ganda.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-white/10 bg-white p-6 shadow-soft">
+                        <div class="mb-4 grid size-16 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-blue-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="file-text" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="font-black text-sdw-navy">
+                            Generate Laporan Instan & Cepat
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Laporan performa dan operasional bisa ditarik kapan saja tanpa perlu rekap manual berminggu-minggu.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-white/10 bg-white p-6 shadow-soft">
+                        <div class="mb-4 grid size-16 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 text-sdw-emerald shadow-sm">
+                            <i data-lucide="search" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="font-black text-sdw-navy">
+                            Pencarian Data dalam Hitungan Detik
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Semua dokumen tersimpan di satu tempat digital, mudah dicari kapan pun Anda membutuhkannya.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-white/10 bg-white p-6 shadow-soft">
+                        <div class="mb-4 grid size-16 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-slate-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="chart-column" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="font-black text-sdw-navy">
+                            Kendali Penuh & Transparan
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Pantau progres kerja harian seluruh tim secara langsung dari dasbor pimpinan.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-white/10 bg-white p-6 shadow-soft">
+                        <div class="mb-4 grid size-16 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-emerald-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="workflow" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="font-black text-sdw-navy">
+                            Otomatisasi Tugas Rutin
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Pangkas waktu kerja administrasi yang berulang agar tim Anda bisa fokus pada pengembangan inti bisnis.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-white/10 bg-white p-6 shadow-soft">
+                        <div class="mb-4 grid size-16 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-blue-50 text-sdw-emerald shadow-sm">
+                            <i data-lucide="blocks" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="font-black text-sdw-navy">
+                            Sistem Fleksibel Sesuai Kebutuhan
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-7 text-slate-600">
+                            Aplikasi dirancang modular agar bisa terus beradaptasi dengan perkembangan instansi Anda ke depan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="layanan" class="bg-sdw-light py-24">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-blue">
+                        Layanan
+                    </p>
+
+                    <h2 class="mt-4 text-3xl font-black tracking-tight text-sdw-navy sm:text-4xl lg:text-5xl">
+                        Layanan Sudo DevWorks
+                    </h2>
+
+                    <p class="mt-6 text-base leading-8 text-slate-600">
+                        Kami membantu Anda membangun solusi digital yang sederhana, rapi, dan sesuai kebutuhan operasional harian.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid gap-6 lg:grid-cols-3">
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                        <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-slate-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="app-window" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-xl font-black text-sdw-navy">
+                            Aplikasi Operasional Kustom
+                        </h3>
+
+                        <p class="mt-4 text-sm leading-7 text-slate-600">
+                            Kami membangun sistem berbasis web yang dirancang khusus untuk menyederhanakan manajemen internal Anda.
+                            Layanan ini menjadi solusi ideal untuk pengelolaan laporan kerja harian, monitoring kegiatan, administrasi internal,
+                            serta sinkronisasi sistem kerja tim pada kantor kecil, sekolah, yayasan, maupun UMKM.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                        <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 text-sdw-emerald shadow-sm">
+                            <i data-lucide="database" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-xl font-black text-sdw-navy">
+                            Sistem Pendataan & Rekap Laporan
+                        </h3>
+
+                        <p class="mt-4 text-sm leading-7 text-slate-600">
+                            Ubah pengelolaan data yang berserakan menjadi pusat informasi yang rapi dan terstruktur.
+                            Solusi ini mempermudah pengorganisasian data pelanggan, profil pegawai, data siswa/anggota,
+                            hingga otomatisasi rekap laporan bulanan tanpa risiko human error.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                        <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-slate-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="layout-template" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-xl font-black text-sdw-navy">
+                            Website Company Profile Profesional
+                        </h3>
+
+                        <p class="mt-4 text-sm leading-7 text-slate-600">
+                            Hadirkan representasi digital yang kredibel, jelas, dan memikat bagi calon klien atau publik.
+                            Kami merancang website profil yang dioptimalkan untuk kebutuhan UMKM, institusi pendidikan,
+                            yayasan, layanan profesional, hingga personal branding.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft lg:col-span-1">
+                        <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-blue-50 text-sdw-emerald shadow-sm">
+                            <i data-lucide="chart-column" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-xl font-black text-sdw-navy">
+                            Dashboard Monitoring Eksekutif
+                        </h3>
+
+                        <p class="mt-4 text-sm leading-7 text-slate-600">
+                            Bantu pimpinan mengambil keputusan berbasis data secara lebih cepat.
+                            Kami menghadirkan dasbor ringkas yang menyajikan visualisasi data penting,
+                            mulai dari tren penjualan, progres proyek, hingga ringkasan performa operasional harian dalam satu layar.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft lg:col-span-2">
+                        <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-cyan-50 text-sdw-blue shadow-sm">
+                            <i data-lucide="messages-square" class="size-7" stroke-width="2" ></i>
+                        </div>
+
+                        <h3 class="text-xl font-black text-sdw-navy">
+                            Konsultasi & Cetak Biru Digitalisasi
+                        </h3>
+
+                        <p class="mt-4 text-sm leading-7 text-slate-600">
+                            Belum tahu pasti sistem apa yang Anda butuhkan? Tim kami siap mendampingi Anda untuk memetakan proses kerja manual saat ini—baik yang masih berbasis form kertas,
+                            arsip fisik, maupun koordinasi WhatsApp—lalu menyederhanakannya ke dalam cetak biru digital yang realistis.
+                        </p>
+
+                        <div class="mt-6 flex flex-col gap-3 rounded-2xl bg-sdw-light p-5 sm:flex-row sm:items-center sm:justify-between">
+                            <p class="text-sm font-semibold text-sdw-navy">
+                                Bingung harus mulai dari mana?
+                            </p>
+
+                            <a
+                                href="https://wa.me/628138280778?text=Halo%20Sudo%20DevWorks%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20aplikasi%20web%20dan%20digitalisasi%20operasional%20untuk%20instansi%2Fbisnis%20saya."
+                                target="_blank"
+                                class="inline-flex items-center justify-center rounded-full bg-sdw-blue px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-700"
+                            >
+                                Konsultasi Gratis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solusi" class="bg-white py-24">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-blue">
+                        Contoh Solusi
+                    </p>
+
+                    <h2 class="mt-4 text-3xl font-black tracking-tight text-sdw-navy sm:text-4xl lg:text-5xl">
+                        Ragam Solusi Eksklusif yang Bisa Anda Miliki
+                    </h2>
+
+                    <p class="mt-6 text-base leading-8 text-slate-600">
+                        Berikut beberapa contoh aplikasi yang dapat dikembangkan dan disesuaikan dengan kebutuhan operasional bisnis,
+                        sekolah, yayasan, maupun kantor kecil Anda.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid gap-6 lg:grid-cols-2">
+                    <div class="group rounded-[2rem] border border-slate-200 bg-sdw-light p-8 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+                            <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-cyan-50 text-sdw-blue shadow-sm">
+                                <i data-lucide="clipboard-check" class="size-7" stroke-width="2" ></i>
+                            </div>
+
+                            <div>
+                                <div class="mb-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-sdw-blue">
+                                    Operasional Kantor
+                                </div>
+
+                                <h3 class="text-2xl font-black tracking-tight text-sdw-navy">
+                                    WorkLog — Aplikasi Laporan Kerja Harian
+                                </h3>
+
+                                <p class="mt-4 text-sm leading-7 text-slate-600">
+                                    Sistem taktis untuk mendokumentasikan kinerja tim secara transparan. Pegawai dapat menginput laporan harian
+                                    dan mengunggah bukti kerja secara instan, sementara manajemen mendapatkan rekap bulanan yang rapi per unit kerja.
+                                </p>
+
+                                <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+                                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                                        Ideal untuk
+                                    </p>
+
+                                    <p class="mt-2 text-sm font-semibold leading-7 text-sdw-navy">
+                                        Kantor skala kecil-menengah, sekolah, yayasan, dan tim operasional lapangan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group rounded-[2rem] border border-slate-200 bg-sdw-light p-8 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+                            <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 text-sdw-emerald shadow-sm">
+                                <i data-lucide="shopping-cart" class="size-7" stroke-width="2" ></i>
+                            </div>
+
+                            <div>
+                                <div class="mb-3 inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
+                                    UMKM & Retail
+                                </div>
+
+                                <h3 class="text-2xl font-black tracking-tight text-sdw-navy">
+                                    SimplePOS — Aplikasi Pencatatan Penjualan UMKM
+                                </h3>
+
+                                <p class="mt-4 text-sm leading-7 text-slate-600">
+                                    Solusi kasir dan inventaris minimalis untuk memantau kesehatan finansial bisnis Anda. Membantu pencatatan
+                                    transaksi harian, manajemen katalog produk, kalkulasi laporan laba-rugi, hingga monitoring stok barang secara praktis.
+                                </p>
+
+                                <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+                                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                                        Ideal untuk
+                                    </p>
+
+                                    <p class="mt-2 text-sm font-semibold leading-7 text-sdw-navy">
+                                        Toko retail, usaha kuliner, warung modern, dan bisnis rumahan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group rounded-[2rem] border border-slate-200 bg-sdw-light p-8 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+                            <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-slate-50 text-sdw-blue shadow-sm">
+                                <i data-lucide="school" class="size-7" stroke-width="2" ></i>
+                            </div>
+
+                            <div>
+                                <div class="mb-3 inline-flex rounded-full bg-cyan-100 px-3 py-1 text-xs font-bold text-sdw-blue">
+                                    Sekolah & Yayasan
+                                </div>
+
+                                <h3 class="text-2xl font-black tracking-tight text-sdw-navy">
+                                    SchoolAdmin — Sistem Administrasi Sekolah & Yayasan
+                                </h3>
+
+                                <p class="mt-4 text-sm leading-7 text-slate-600">
+                                    Sistem administrasi terpadu untuk meringankan beban kerja tata usaha. Memudahkan pengelolaan data siswa/anggota,
+                                    dokumentasi agenda kegiatan, pengarsipan dokumen penting, serta penyusunan laporan berkala ke yayasan.
+                                </p>
+
+                                <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+                                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                                        Ideal untuk
+                                    </p>
+
+                                    <p class="mt-2 text-sm font-semibold leading-7 text-sdw-navy">
+                                        Sekolah kecil-menengah, yayasan pendidikan, dan lembaga kursus/pelatihan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group rounded-[2rem] border border-slate-200 bg-sdw-light p-8 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+                            <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-slate-50 text-sdw-blue shadow-sm">
+                                <i data-lucide="life-buoy" class="size-7" stroke-width="2" ></i>
+                            </div>
+
+                            <div>
+                                <div class="mb-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-sdw-blue">
+                                    Bantuan & Pengaduan
+                                </div>
+
+                                <h3 class="text-2xl font-black tracking-tight text-sdw-navy">
+                                    HelpdeskLite — Sistem Pengaduan & Permintaan Bantuan
+                                </h3>
+
+                                <p class="mt-4 text-sm leading-7 text-slate-600">
+                                    Aplikasi manajemen tiket untuk memastikan setiap keluhan atau permintaan layanan internal ditindaklanjuti dengan
+                                    tepat waktu. Dilengkapi dengan pelacakan status penanganan pending, on-progress, resolved dan riwayat kinerja tim teknis.
+                                </p>
+
+                                <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+                                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+                                        Ideal untuk
+                                    </p>
+
+                                    <p class="mt-2 text-sm font-semibold leading-7 text-sdw-navy">
+                                        Manajemen gedung, unit IT internal kantor, layanan pengaduan sekolah, atau pusat bantuan operasional.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-14 rounded-[2rem] bg-sdw-navy p-8 text-center shadow-soft sm:p-10">
+                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-cyan">
+                        Solusi Bisa Disesuaikan
+                    </p>
+
+                    <h3 class="mx-auto mt-4 max-w-3xl text-2xl font-black tracking-tight text-white sm:text-3xl">
+                        Punya kebutuhan berbeda? Sudo DevWorks dapat merancang solusi yang mengikuti alur kerja Anda.
+                    </h3>
+
+                    <p class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300">
+                        Ceritakan proses manual yang ingin dirapikan. Kami bantu petakan menjadi sistem digital yang sederhana,
+                        realistis, dan siap digunakan bertahap.
+                    </p>
+
+                    <div class="mt-8">
+                        <a
+                            href="https://wa.me/628138280778?text=Halo%20Sudo%20DevWorks%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20aplikasi%20web%20dan%20digitalisasi%20operasional%20untuk%20instansi%2Fbisnis%20saya."
+                            target="_blank"
+                            class="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-sm font-bold text-sdw-navy transition hover:bg-slate-100"
+                        >
+                            Diskusikan Kebutuhan Anda
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cara-kerja" class="relative overflow-hidden bg-sdw-light py-24">
+            <div class="absolute inset-0 -z-10">
+                <div class="absolute left-0 top-20 size-80 rounded-full bg-blue-500/5 blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 size-96 rounded-full bg-cyan-400/10 blur-3xl"></div>
+            </div>
+
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-blue">
+                        Cara Kerja Kami
+                    </p>
+
+                    <h2 class="mt-4 text-3xl font-black tracking-tight text-sdw-navy sm:text-4xl lg:text-5xl">
+                        6 Langkah Menuju Efisiensi
+                    </h2>
+
+                    <p class="mt-6 text-base leading-8 text-slate-600">
+                        Kami membantu Anda membangun solusi digital secara bertahap, mulai dari memahami masalah,
+                        memetakan alur kerja, hingga mendampingi proses penggunaan sistem setelah dirilis.
+                    </p>
+                </div>
+
+                <div class="relative mt-16">
+                    <div class="absolute left-8 top-0 hidden h-full w-px bg-slate-200 lg:block"></div>
+
+                    <div class="grid gap-6 lg:grid-cols-2">
+                        <div class="relative rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                            <div class="flex gap-5">
+                                <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-cyan-50 text-sdw-blue shadow-sm">
+                                    <i data-lucide="messages-square" class="size-7" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <div class="mb-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-black text-sdw-blue">
+                                        01
+                                    </div>
+
+                                    <h3 class="text-xl font-black text-sdw-navy">
+                                        Konsultasi Kebutuhan
+                                    </h3>
+
+                                    <p class="mt-3 text-sm leading-7 text-slate-600">
+                                        Kami mendengarkan tantangan terbesar, proses bisnis, dan target yang ingin dicapai instansi Anda.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                            <div class="flex gap-5">
+                                <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-blue-50 text-sdw-blue shadow-sm">
+                                    <i data-lucide="workflow" class="size-7" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <div class="mb-3 inline-flex rounded-full bg-cyan-100 px-3 py-1 text-xs font-black text-sdw-blue">
+                                        02
+                                    </div>
+
+                                    <h3 class="text-xl font-black text-sdw-navy">
+                                        Pemetaan Alur Kerja
+                                    </h3>
+
+                                    <p class="mt-3 text-sm leading-7 text-slate-600">
+                                        Tim kami mengurai alur kerja manual Anda saat ini untuk disederhanakan ke dalam logika sistem digital.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                            <div class="flex gap-5">
+                                <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 text-sdw-emerald shadow-sm">
+                                    <i data-lucide="layout-template" class="size-7" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <div class="mb-3 inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-black text-emerald-700">
+                                        03
+                                    </div>
+
+                                    <h3 class="text-xl font-black text-sdw-navy">
+                                        Perancangan Sistem
+                                    </h3>
+
+                                    <p class="mt-3 text-sm leading-7 text-slate-600">
+                                        Kami menyusun struktur fitur dan desain antarmuka UI/UX yang intuitif agar mudah dioperasikan oleh siapa saja.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                            <div class="flex gap-5">
+                                <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-slate-50 text-sdw-blue shadow-sm">
+                                    <i data-lucide="code-2" class="size-7" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <div class="mb-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-black text-sdw-blue">
+                                        04
+                                    </div>
+
+                                    <h3 class="text-xl font-black text-sdw-navy">
+                                        Pengembangan Aplikasi
+                                    </h3>
+
+                                    <p class="mt-3 text-sm leading-7 text-slate-600">
+                                        Kode program dirancang secara bertahap, memprioritaskan fungsi utama agar aplikasi bisa segera Anda gunakan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                            <div class="flex gap-5">
+                                <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-blue-50 text-sdw-blue shadow-sm">
+                                    <i data-lucide="clipboard-check" class="size-7" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <div class="mb-3 inline-flex rounded-full bg-cyan-100 px-3 py-1 text-xs font-black text-sdw-blue">
+                                        05
+                                    </div>
+
+                                    <h3 class="text-xl font-black text-sdw-navy">
+                                        Uji Coba Bersama
+                                    </h3>
+
+                                    <p class="mt-3 text-sm leading-7 text-slate-600">
+                                        Sistem diuji langsung bersama tim Anda di lapangan untuk memastikan performanya sesuai dengan kondisi kerja nyata.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                            <div class="flex gap-5">
+                                <div class="grid size-16 shrink-0 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-blue-50 text-sdw-emerald shadow-sm">
+                                    <i data-lucide="handshake" class="size-7" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <div class="mb-3 inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-black text-emerald-700">
+                                        06
+                                    </div>
+
+                                    <h3 class="text-xl font-black text-sdw-navy">
+                                        Serah Terima & Pendampingan
+                                    </h3>
+
+                                    <p class="mt-3 text-sm leading-7 text-slate-600">
+                                        Kami memastikan transisi berjalan lancar dengan memberikan panduan penggunaan serta dukungan teknis pasca-rilis.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-24 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-blue">
+                            Kenapa Memilih Kami?
+                        </p>
+
+                        <h2 class="mt-4 text-3xl font-black tracking-tight text-sdw-navy sm:text-4xl lg:text-5xl">
+                            Kami tidak hanya membuat aplikasi. Kami membantu merapikan cara kerja.
+                        </h2>
+
+                        <p class="mt-6 text-base leading-8 text-slate-600">
+                            Sudo DevWorks berfokus pada solusi digital yang sederhana, fungsional, dan mudah dipakai.
+                            Setiap fitur dirancang untuk menjawab kebutuhan operasional nyata, bukan sekadar menambah kompleksitas.
+                        </p>
+
+                        <div class="mt-8 rounded-[2rem] bg-sdw-navy p-7 text-white shadow-soft">
+                            <p class="text-sm font-bold text-sdw-cyan">
+                                Prinsip utama kami:
+                            </p>
+
+                            <p class="mt-3 text-sm leading-7 text-slate-300">
+                                Mulai dari masalah yang paling penting, bangun fitur yang paling berdampak,
+                                lalu kembangkan sistem secara bertahap mengikuti pertumbuhan organisasi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-5">
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <div class="flex gap-4">
+                                <div class="grid size-12 shrink-0 place-items-center rounded-2xl bg-blue-100 text-sdw-blue">
+                                    <i data-lucide="target" class="size-6" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-black text-sdw-navy">
+                                        Fokus pada Efisiensi Operasional
+                                    </h3>
+
+                                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                                        Kami tidak sekadar menulis kode atau membuat aplikasi, melainkan membantu Anda memperbaiki dan merapikan alur kerja bisnis.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <div class="flex gap-4">
+                                <div class="grid size-12 shrink-0 place-items-center rounded-2xl bg-cyan-100 text-sdw-blue">
+                                    <i data-lucide="users" class="size-6" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-black text-sdw-navy">
+                                        Desain Ramah Pengguna Non-Teknis
+                                    </h3>
+
+                                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                                        Kami menjamin sistem yang dibuat memiliki kurva belajar yang sangat rendah, sehingga staf Anda bisa langsung menggunakannya tanpa bingung.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <div class="flex gap-4">
+                                <div class="grid size-12 shrink-0 place-items-center rounded-2xl bg-emerald-100 text-sdw-emerald">
+                                    <i data-lucide="blocks" class="size-6" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-black text-sdw-navy">
+                                        Skalabilitas yang Fleksibel
+                                    </h3>
+
+                                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                                        Pengembangan fitur dilakukan secara modular, memungkinkan sistem berkembang seiring bertumbuhnya skala organisasi Anda.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <div class="flex gap-4">
+                                <div class="grid size-12 shrink-0 place-items-center rounded-2xl bg-blue-100 text-sdw-blue">
+                                    <i data-lucide="leaf" class="size-6" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-black text-sdw-navy">
+                                        Pendekatan Bertahap atau Lean Development
+                                    </h3>
+
+                                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                                        Kami memprioritaskan fitur-fitur krusial terlebih dahulu. Langkah ini menghemat waktu dan biaya Anda, sekaligus menghindari kerumitan fitur yang tidak terpakai.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <div class="flex gap-4">
+                                <div class="grid size-12 shrink-0 place-items-center rounded-2xl bg-cyan-100 text-sdw-blue">
+                                    <i data-lucide="message-circle" class="size-6" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-black text-sdw-navy">
+                                        Komunikasi Transparan & Rapi
+                                    </h3>
+
+                                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                                        Anda akan selalu mendapatkan pembaruan progres yang jelas, memastikan hasil akhir aplikasi sejalan dengan ekspektasi awal.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="target-client" class="bg-white py-24">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-blue">
+                            Target Client
+                        </p>
+
+                        <h2 class="mt-4 text-3xl font-black tracking-tight text-sdw-navy sm:text-4xl lg:text-5xl">
+                            Solusi Tepat Untuk Siapa?
+                        </h2>
+
+                        <p class="mt-6 text-base leading-8 text-slate-600">
+                            Sudo DevWorks hadir sebagai mitra strategis bagi UMKM, sekolah, yayasan,
+                            kantor kecil, dan tim operasional yang ingin beralih dari cara kerja manual
+                            menuju sistem digital yang lebih rapi dan mudah dipantau.
+                        </p>
+
+                        <div class="mt-8 rounded-[2rem] border border-blue-100 bg-gradient-to-br from-blue-50 to-cyan-50 p-7">
+                            <div class="flex gap-4">
+                                <div class="grid size-12 shrink-0 place-items-center rounded-2xl bg-white text-sdw-blue shadow-sm">
+                                    <i data-lucide="lightbulb" class="size-6" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-black text-sdw-navy">
+                                        Mulai dari masalah operasional paling terasa.
+                                    </h3>
+
+                                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                                        Anda tidak harus langsung membangun sistem besar. Kita bisa mulai dari satu proses manual
+                                        yang paling sering menyita waktu, lalu dikembangkan secara bertahap.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-5 sm:grid-cols-2">
+                        <div class="rounded-[2rem] border border-slate-200 bg-sdw-light p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                            <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 text-sdw-emerald shadow-sm">
+                                <i data-lucide="store" class="size-7" stroke-width="2" ></i>
+                            </div>
+
+                            <h3 class="text-lg font-black text-sdw-navy">
+                                Pemilik UMKM
+                            </h3>
+
+                            <p class="mt-3 text-sm leading-7 text-slate-600">
+                                Untuk pemilik usaha yang ingin memantau performa bisnis dan mengelola data transaksi dengan lebih terstruktur.
+                            </p>
+                        </div>
+
+                        <div class="rounded-[2rem] border border-slate-200 bg-sdw-light p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                            <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-slate-50 text-sdw-blue shadow-sm">
+                                <i data-lucide="school" class="size-7" stroke-width="2" ></i>
+                            </div>
+
+                            <h3 class="text-lg font-black text-sdw-navy">
+                                Sekolah & Yayasan
+                            </h3>
+
+                            <p class="mt-3 text-sm leading-7 text-slate-600">
+                                Untuk pengurus sekolah dan yayasan yang ingin memodernisasi tata kelola administrasi serta pengarsipan.
+                            </p>
+                        </div>
+
+                        <div class="rounded-[2rem] border border-slate-200 bg-sdw-light p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                            <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-slate-50 text-sdw-blue shadow-sm">
+                                <i data-lucide="building-2" class="size-7" stroke-width="2" ></i>
+                            </div>
+
+                            <h3 class="text-lg font-black text-sdw-navy">
+                                Kantor Kecil
+                            </h3>
+
+                            <p class="mt-3 text-sm leading-7 text-slate-600">
+                                Untuk manajer kantor kecil yang membutuhkan sistem monitoring akurat tanpa alur birokrasi yang rumit.
+                            </p>
+                        </div>
+
+                        <div class="rounded-[2rem] border border-slate-200 bg-sdw-light p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                            <div class="mb-6 grid size-16 place-items-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-blue-50 text-sdw-emerald shadow-sm">
+                                <i data-lucide="users-round" class="size-7" stroke-width="2" ></i>
+                            </div>
+
+                            <h3 class="text-lg font-black text-sdw-navy">
+                                Tim Operasional
+                            </h3>
+
+                            <p class="mt-3 text-sm leading-7 text-slate-600">
+                                Untuk tim yang siap beralih dari ketergantungan pada tabel Excel manual dan tumpukan chat WhatsApp.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="kontak" class="relative mt-20 scroll-mt-24 overflow-hidden rounded-[2rem] bg-sdw-navy p-8 text-center shadow-soft sm:p-12">
+                    <div class="absolute inset-0">
+                        <div class="absolute left-1/2 top-0 size-80 -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl"></div>
+                        <div class="absolute bottom-0 right-0 size-72 rounded-full bg-cyan-400/10 blur-3xl"></div>
+                    </div>
+
+                    <div class="relative">
+                        <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-cyan">
+                            Konsultasi Gratis
+                        </p>
+
+                        <h2 class="mx-auto mt-4 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+                            Siap membangun sistem kerja yang lebih efisien?
+                        </h2>
+
+                        <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300">
+                            Ceritakan tantangan operasional yang sedang Anda hadapi saat ini.
+                            Mari berdiskusi untuk merancang solusi digital yang praktis, tepat sasaran,
+                            dan realistis untuk instansi Anda.
+                        </p>
+
+                        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                            <a
+                                href="https://wa.me/628138280778?text=Halo%20Sudo%20DevWorks%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20aplikasi%20web%20dan%20digitalisasi%20operasional%20untuk%20instansi%2Fbisnis%20saya."
+                                target="_blank"
+                                class="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-sm font-bold text-sdw-navy shadow-lg transition hover:bg-slate-100"
+                            >
+                                Mulai Konsultasi Gratis
+                            </a>
+
+                            <a
+                                href="#solusi"
+                                class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-bold text-white backdrop-blur transition hover:bg-white/15"
+                            >
+                                Lihat Contoh Solusi
+                            </a>
+                        </div>
+
+                        <div class="mx-auto mt-8 max-w-2xl rounded-2xl border border-white/10 bg-white/10 p-5 text-left backdrop-blur">
+                            <p class="text-xs font-bold uppercase tracking-[0.18em] text-sdw-cyan">
+                                Template Pesan WhatsApp
+                            </p>
+
+                            <p class="mt-3 text-sm leading-7 text-slate-200">
+                                Halo Sudo DevWorks, saya ingin berkonsultasi mengenai kebutuhan aplikasi web dan digitalisasi operasional untuk instansi/bisnis saya.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang-kami" class="bg-sdw-light py-24">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-blue">
+                            FAQ
+                        </p>
+
+                        <h2 class="mt-4 text-3xl font-black tracking-tight text-sdw-navy sm:text-4xl lg:text-5xl">
+                            Pertanyaan yang Sering Diajukan
+                        </h2>
+
+                        <p class="mt-6 text-base leading-8 text-slate-600">
+                            Beberapa pertanyaan umum sebelum Anda memulai diskusi atau membangun sistem digital bersama Sudo DevWorks.
+                        </p>
+
+                        <div class="mt-8 rounded-[2rem] border border-blue-100 bg-gradient-to-br from-blue-50 to-cyan-50 p-7">
+                            <div class="flex gap-4">
+                                <div class="grid size-12 shrink-0 place-items-center rounded-2xl bg-white text-sdw-blue shadow-sm">
+                                    <i data-lucide="message-circle-question" class="size-6" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-black text-sdw-navy">
+                                        Masih ragu harus mulai dari mana?
+                                    </h3>
+
+                                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                                        Anda cukup ceritakan proses kerja manual yang paling sering menyita waktu.
+                                        Dari situ, kami bantu petakan solusi digital yang paling realistis untuk dimulai.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        x-data="{ activeFaq: 1 }"
+                        class="space-y-4"
+                    >
+                        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm">
+                            <button
+                                type="button"
+                                class="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
+                                @click="activeFaq = activeFaq === 1 ? null : 1"
+                            >
+                                <span class="text-base font-black text-sdw-navy">
+                                    Apakah saya harus sudah memiliki konsep matang sebelum membuat aplikasi?
+                                </span>
+
+                                <span class="grid size-8 shrink-0 place-items-center rounded-full bg-sdw-light text-sdw-blue">
+                                    <i data-lucide="chevron-down"
+                                        class="size-5 transition"
+                                        stroke-width="2"
+                                        x-bind:class="activeFaq === 1 ? 'rotate-180' : ''"
+                                    ></i>
+                                </span>
+                            </button>
+
+                            <div
+                                x-show="activeFaq === 1"
+                                x-collapse
+                                class="px-6 pb-6"
+                            >
+                                <p class="text-sm leading-7 text-slate-600">
+                                    Tidak perlu. Anda cukup menceritakan kendala kerja harian atau proses manual yang ingin dirapikan.
+                                    Tim kami yang akan membantu memetakan dan merancang konsep sistem terbaik untuk Anda.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm">
+                            <button
+                                type="button"
+                                class="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
+                                @click="activeFaq = activeFaq === 2 ? null : 2"
+                            >
+                                <span class="text-base font-black text-sdw-navy">
+                                    Apakah sistem yang dibuat benar-benar bisa disesuaikan dengan alur kerja internal kami?
+                                </span>
+
+                                <span class="grid size-8 shrink-0 place-items-center rounded-full bg-sdw-light text-sdw-blue">
+                                    <i data-lucide="chevron-down"
+                                        class="size-5 transition"
+                                        stroke-width="2"
+                                        x-bind:class="activeFaq === 2 ? 'rotate-180' : ''"
+                                    ></i>
+                                </span>
+                            </button>
+
+                            <div
+                                x-show="activeFaq === 2"
+                                x-collapse
+                                class="px-6 pb-6"
+                            >
+                                <p class="text-sm leading-7 text-slate-600">
+                                    Tentu saja. Seluruh aplikasi yang kami bangun bersifat kustom atau tailor-made,
+                                    artinya sistem yang mengikuti cara kerja instansi Anda, bukan sebaliknya.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm">
+                            <button
+                                type="button"
+                                class="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
+                                @click="activeFaq = activeFaq === 3 ? null : 3"
+                            >
+                                <span class="text-base font-black text-sdw-navy">
+                                    Apakah layanan ini ramah untuk skala usaha kecil atau yayasan berkembang?
+                                </span>
+
+                                <span class="grid size-8 shrink-0 place-items-center rounded-full bg-sdw-light text-sdw-blue">
+                                    <i data-lucide="chevron-down"
+                                        class="size-5 transition"
+                                        stroke-width="2"
+                                        x-bind:class="activeFaq === 3 ? 'rotate-180' : ''"
+                                    ></i>
+                                </span>
+                            </button>
+
+                            <div
+                                x-show="activeFaq === 3"
+                                x-collapse
+                                class="px-6 pb-6"
+                            >
+                                <p class="text-sm leading-7 text-slate-600">
+                                    Ya, fokus utama Sudo DevWorks adalah membantu UMKM, sekolah, yayasan, dan kantor kecil
+                                    agar bisa menikmati efisiensi digitalisasi tanpa harus terbebani biaya investasi teknologi raksasa.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm">
+                            <button
+                                type="button"
+                                class="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
+                                @click="activeFaq = activeFaq === 4 ? null : 4"
+                            >
+                                <span class="text-base font-black text-sdw-navy">
+                                    Bolehkah kami membangun fitur yang paling sederhana terlebih dahulu?
+                                </span>
+
+                                <span class="grid size-8 shrink-0 place-items-center rounded-full bg-sdw-light text-sdw-blue">
+                                    <i data-lucide="chevron-down"
+                                        class="size-5 transition"
+                                        stroke-width="2"
+                                        x-bind:class="activeFaq === 4 ? 'rotate-180' : ''"
+                                    ></i>
+                                </span>
+                            </button>
+
+                            <div
+                                x-show="activeFaq === 4"
+                                x-collapse
+                                class="px-6 pb-6"
+                            >
+                                <p class="text-sm leading-7 text-slate-600">
+                                    Sangat boleh. Kami justru menyarankan Anda memulai dari modul yang paling mendesak.
+                                    Setelah tim beradaptasi, fitur-fitur baru bisa ditambahkan secara bertahap.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm">
+                            <button
+                                type="button"
+                                class="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
+                                @click="activeFaq = activeFaq === 5 ? null : 5"
+                            >
+                                <span class="text-base font-black text-sdw-navy">
+                                    Bagaimana cara memulai diskusinya? Apakah ada biaya di awal?
+                                </span>
+
+                                <span class="grid size-8 shrink-0 place-items-center rounded-full bg-sdw-light text-sdw-blue">
+                                    <i data-lucide="chevron-down"
+                                        class="size-5 transition"
+                                        stroke-width="2"
+                                        x-bind:class="activeFaq === 5 ? 'rotate-180' : ''"
+                                    ></i>
+                                </span>
+                            </button>
+
+                            <div
+                                x-show="activeFaq === 5"
+                                x-collapse
+                                class="px-6 pb-6"
+                            >
+                                <p class="text-sm leading-7 text-slate-600">
+                                    Sesi diskusi dan konsultasi awal melalui WhatsApp sepenuhnya gratis.
+                                    Anda bisa memanfaatkannya untuk mendapatkan gambaran solusi sebelum memutuskan bekerja sama.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-24 overflow-hidden rounded-[2rem] bg-white shadow-soft">
+                    <div class="grid lg:grid-cols-[0.9fr_1.1fr]">
+                        <div class="relative bg-sdw-navy p-8 text-white sm:p-10 lg:p-12">
+                            <div class="absolute inset-0">
+                                <div class="absolute left-0 top-0 size-72 rounded-full bg-blue-500/20 blur-3xl"></div>
+                                <div class="absolute bottom-0 right-0 size-72 rounded-full bg-cyan-400/10 blur-3xl"></div>
+                            </div>
+
+                            <div class="relative">
+                                <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-cyan">
+                                    Tentang Kami
+                                </p>
+
+                                <h2 class="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
+                                    Tentang Sudo DevWorks
+                                </h2>
+
+                                <p class="mt-6 text-base leading-8 text-slate-300">
+                                    Sudo DevWorks adalah mitra pengembangan aplikasi web dan solusi digitalisasi operasional
+                                    yang berfokus membantu UMKM, institusi pendidikan, yayasan, serta perkantoran skala kecil.
+                                </p>
+
+                                <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                                    <div class="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">
+                                        <div class="mb-3 grid size-10 place-items-center rounded-xl bg-white/10 text-sdw-cyan">
+                                            <i data-lucide="sparkles" class="size-5" stroke-width="2" ></i>
+                                        </div>
+
+                                        <p class="text-sm font-black text-white">
+                                            Sederhana
+                                        </p>
+
+                                        <p class="mt-2 text-xs leading-6 text-slate-300">
+                                            Sistem dibuat mudah dipahami dan tidak membebani pengguna.
+                                        </p>
+                                    </div>
+
+                                    <div class="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">
+                                        <div class="mb-3 grid size-10 place-items-center rounded-xl bg-white/10 text-sdw-cyan">
+                                            <i data-lucide="settings-2" class="size-5" stroke-width="2" ></i>
+                                        </div>
+
+                                        <p class="text-sm font-black text-white">
+                                            Fungsional
+                                        </p>
+
+                                        <p class="mt-2 text-xs leading-6 text-slate-300">
+                                            Fitur diprioritaskan berdasarkan kebutuhan operasional nyata.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8 sm:p-10 lg:p-12">
+                            <p class="text-sm font-bold uppercase tracking-[0.2em] text-sdw-blue">
+                                Prinsip Kami
+                            </p>
+
+                            <h3 class="mt-4 text-2xl font-black tracking-tight text-sdw-navy sm:text-3xl">
+                                Digitalisasi tidak harus rumit.
+                            </h3>
+
+                            <div class="mt-6 space-y-5 text-sm leading-8 text-slate-600">
+                                <p>
+                                    Kami membawa prinsip bahwa digitalisasi tidak boleh rumit.
+                                    Efisiensi terbaik justru lahir dari sistem yang sederhana, fungsional,
+                                    dan dirancang dengan empati terhadap cara kerja pengguna di lapangan.
+                                </p>
+
+                                <p>
+                                    Komitmen kami adalah membantu Anda mengeliminasi hambatan administratif manual,
+                                    menghadirkan transparansi data, dan menciptakan ruang tumbuh yang lebih besar
+                                    bagi instansi Anda melalui teknologi yang tepat guna.
+                                </p>
+                            </div>
+
+                            <div class="mt-8 grid gap-4 sm:grid-cols-3">
+                                <div class="rounded-2xl bg-sdw-light p-5">
+                                    <p class="text-2xl font-black text-sdw-blue">
+                                        01
+                                    </p>
+                                    <p class="mt-2 text-xs font-bold leading-6 text-sdw-navy">
+                                        Pahami masalah kerja harian.
+                                    </p>
+                                </div>
+
+                                <div class="rounded-2xl bg-sdw-light p-5">
+                                    <p class="text-2xl font-black text-sdw-blue">
+                                        02
+                                    </p>
+                                    <p class="mt-2 text-xs font-bold leading-6 text-sdw-navy">
+                                        Bangun solusi paling berdampak.
+                                    </p>
+                                </div>
+
+                                <div class="rounded-2xl bg-sdw-light p-5">
+                                    <p class="text-2xl font-black text-sdw-blue">
+                                        03
+                                    </p>
+                                    <p class="mt-2 text-xs font-bold leading-6 text-sdw-navy">
+                                        Kembangkan secara bertahap.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-8">
+                                <a
+                                    href="https://wa.me/628138280778?text=Halo%20Sudo%20DevWorks%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20aplikasi%20web%20dan%20digitalisasi%20operasional%20untuk%20instansi%2Fbisnis%20saya."
+                                    target="_blank"
+                                    class="inline-flex items-center justify-center rounded-full bg-sdw-blue px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700"
+                                >
+                                    Konsultasi via WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-sdw-navy text-white">
+            <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+                <div class="grid gap-12 lg:grid-cols-[1.1fr_0.8fr_0.8fr_1fr]">
+                    <div>
+                        <a href="#beranda" class="flex items-center gap-3">
+                            <div class="grid size-11 place-items-center rounded-2xl bg-white text-sdw-navy shadow-sm">
+                                <span class="text-lg font-black tracking-tight"><img
+                                    src="assets/logo/sudo-devworks-logo-icon-transparent.png"
+                                    alt="Sudo DevWorks"
+                                    class="size-11 rounded-2xl object-contain"
+                                /></span>
+                            </div>
+
+                            <div class="leading-tight">
+                                <p class="text-lg font-extrabold tracking-tight text-white">
+                                    Sudo DevWorks
+                                </p>
+                                <p class="text-xs font-medium text-slate-400">
+                                    Digital Solutions
+                                </p>
+                            </div>
+                        </a>
+
+                        <p class="mt-6 max-w-sm text-sm leading-7 text-slate-300">
+                            Custom Web Application & Digital Solutions. Digitalisasi operasional tanpa ribet.
+                        </p>
+
+                        <div class="mt-6 flex items-center gap-3">
+                            <div class="grid size-10 place-items-center rounded-xl bg-white/10 text-sdw-cyan">
+                                <i data-lucide="code-2" class="size-5" stroke-width="2" ></i>
+                            </div>
+
+                            <div class="grid size-10 place-items-center rounded-xl bg-white/10 text-sdw-cyan">
+                                <i data-lucide="layout-dashboard" class="size-5" stroke-width="2" ></i>
+                            </div>
+
+                            <div class="grid size-10 place-items-center rounded-xl bg-white/10 text-sdw-cyan">
+                                <i data-lucide="workflow" class="size-5" stroke-width="2" ></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-black uppercase tracking-[0.18em] text-sdw-cyan">
+                            Navigasi
+                        </h3>
+
+                        <div class="mt-6 space-y-4">
+                            <a href="#beranda" class="block text-sm font-semibold text-slate-300 transition hover:text-white">
+                                Beranda
+                            </a>
+
+                            <a href="#layanan" class="block text-sm font-semibold text-slate-300 transition hover:text-white">
+                                Layanan
+                            </a>
+
+                            <a href="#solusi" class="block text-sm font-semibold text-slate-300 transition hover:text-white">
+                                Solusi
+                            </a>
+
+                            <a href="#cara-kerja" class="block text-sm font-semibold text-slate-300 transition hover:text-white">
+                                Cara Kerja
+                            </a>
+
+                            <a href="#tentang-kami" class="block text-sm font-semibold text-slate-300 transition hover:text-white">
+                                Tentang Kami
+                            </a>
+
+                            <a href="#kontak" class="block text-sm font-semibold text-slate-300 transition hover:text-white">
+                                Kontak
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-black uppercase tracking-[0.18em] text-sdw-cyan">
+                            Layanan
+                        </h3>
+
+                        <div class="mt-6 space-y-4">
+                            <p class="text-sm font-semibold text-slate-300">
+                                Aplikasi Operasional Kustom
+                            </p>
+
+                            <p class="text-sm font-semibold text-slate-300">
+                                Sistem Pendataan & Rekap
+                            </p>
+
+                            <p class="text-sm font-semibold text-slate-300">
+                                Website Company Profile
+                            </p>
+
+                            <p class="text-sm font-semibold text-slate-300">
+                                Dashboard Monitoring
+                            </p>
+
+                            <p class="text-sm font-semibold text-slate-300">
+                                Konsultasi Digitalisasi
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-black uppercase tracking-[0.18em] text-sdw-cyan">
+                            Kontak Resmi
+                        </h3>
+
+                        <div class="mt-6 space-y-5">
+                            <div class="flex gap-3">
+                                <div class="grid size-10 shrink-0 place-items-center rounded-xl bg-white/10 text-sdw-cyan">
+                                    <i data-lucide="phone" class="size-5" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                                        WhatsApp
+                                    </p>
+                                    <p class="mt-1 text-sm font-semibold text-slate-300">
+                                        [0813-828-0778]
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3">
+                                <div class="grid size-10 shrink-0 place-items-center rounded-xl bg-white/10 text-sdw-cyan">
+                                    <i data-lucide="mail" class="size-5" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                                        Email
+                                    </p>
+                                    <p class="mt-1 text-sm font-semibold text-slate-300">
+                                        [hello@sudodevworks.com]
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3">
+                                <div class="grid size-10 shrink-0 place-items-center rounded-xl bg-white/10 text-sdw-cyan">
+                                    <i data-lucide="map-pin" class="size-5" stroke-width="2" ></i>
+                                </div>
+
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                                        Lokasi
+                                    </p>
+                                    <p class="mt-1 text-sm font-semibold text-slate-300">
+                                        Indonesia
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            href="https://wa.me/628138280778?text=Halo%20Sudo%20DevWorks%2C%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20aplikasi%20web%20dan%20digitalisasi%20operasional%20untuk%20instansi%2Fbisnis%20saya."
+                            target="_blank"
+                            class="mt-7 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-bold text-sdw-navy transition hover:bg-slate-100"
+                        >
+                            Konsultasi Gratis
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-14 border-t border-white/10 pt-8">
+                    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                        <p class="text-sm text-slate-400">
+                            © 2026 Sudo DevWorks. All rights reserved.
+                        </p>
+
+                        <p class="text-sm text-slate-500">
+                            Digitalisasi operasional jadi lebih sederhana.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+</html>
